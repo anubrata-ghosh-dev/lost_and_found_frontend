@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item - CampusFind@BCREC</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>🎓 CampusFind@BCREC</h1>
+    <p>Help reunite lost items with their owners</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="post-found.html">I Found Something</a>
+    <a href="post-lost.html">I Lost Something</a>
+    <a href="view-items.html">View Found Items</a>
+</nav>
+
+<main>
+    <section class="form-container">
+
+        <h2>🔍 Report a Lost Item</h2>
+        <p>Describe what you lost. We'll check for matches.</p>
+
+        <!-- ================= LOST ITEM FORM ================= -->
+        <form id="lostItemForm">
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" required>
+                    <option value="">-- Select Category --</option>
+                    <option value="id">ID Card</option>
+                    <option value="wallet">Wallet/Purse</option>
+                    <option value="phone">Phone</option>
+                    <option value="keys">Keys</option>
+                    <option value="bottle">Water Bottle</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="books">Books/Notebooks</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Describe the item *</label>
+                <textarea 
+                id="description" 
+                name="description" 
+                rows="5" 
+                required
+                placeholder="Describe the lost item clearly like colour,brand etc"
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Where did you lose it? *</label>
+                <textarea
+                type="text" 
+                id="location"
+                name="location" 
+                rows="2"
+                required
+                placeholder="Mention all the likely locations like- library,canteen etc"
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="dateLost">Date Lost *</label>
+                <input type="date" id="dateLost" name="dateLost" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ownerContact">Your Email *</label>
+                <input type="email" id="ownerContact" name="ownerContact" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Report Lost Item
+            </button>
+        </form>
+
+        <!-- ================= VERIFICATION SECTION ================= -->
+        <div id="matchSection" style="display:none; margin-top:2rem;">
+            <h2>🔐 Verify Ownership</h2>
+            <p>We found a possible match. Please answer carefully.</p>
+
+            <form id="verifyForm">
+                <input type="hidden" id="foundItemId">
+
+                <div class="form-group">
+                    <label for="color">Item Color *</label>
+                    <input type="text" id="color" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mark">Special Identification *</label>
+                    <input type="text" id="mark" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="extra">Any Extra Detail</label>
+                    <input type="text" id="extra">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Submit Verification
+                </button>
+            </form>
+        </div>
+
+        <!-- ================= VERIFIED RESULT ================= -->
+        <div id="verifiedResult" style="display:none; margin-top:2rem;">
+            <h3>✅ Item Verified</h3>
+            <img id="verifiedImage" style="max-width:100%; border-radius:8px;" alt="verified item image"/>
+            <p id="finderEmail" style="margin-top:10px;"></p>
+        </div>
+
+        <!-- ================= MESSAGES ================= -->
+        <div id="successMessage" class="message success" style="display:none;">
+            ✅ Lost item reported successfully.
+        </div>
+
+        <div id="errorMessage" class="message error" style="display:none;">
+            ❌ Something went wrong. Please try again.
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 CampusFind@BCREC | Developed by LOGICLORDS | Built for students, by students</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

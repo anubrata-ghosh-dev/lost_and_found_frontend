@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Found Item - CampusFind@BCREC</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>🎓 CampusFind@BCREC</h1>
+    <p>Help reunite lost items with their owners</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="post-found.html">I Found Something</a>
+    <a href="post-lost.html">I Lost Something</a>
+    <a href="view-items.html">View Found Items</a>
+</nav>
+
+<main>
+    <section class="form-container">
+        <h2>📦 Post a Found Item</h2>
+        <p>Fill out the details below. We'll help find the owner!</p>
+
+        <!-- IMPORTANT: enctype ADDED -->
+        <form id="foundItemForm" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" required>
+                    <option value="">-- Select Category --</option>
+                    <option value="id">ID Card</option>
+                    <option value="wallet">Wallet/Purse</option>
+                    <option value="phone">Phone</option>
+                    <option value="keys">Keys</option>
+                    <option value="bottle">Water Bottle</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="books">Books/Notebooks</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="itemImage">Upload Photo *</label>
+                <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+                <small>Photo will stay hidden until verification</small>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Where did you find it? *</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dateFound">Date Found *</label>
+                <input type="date" id="dateFound" name="dateFound" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description *</label>
+                <textarea 
+                id="description" 
+                name="description" 
+                rows="5"
+                required 
+                placeholder="Describe the lost item clearly like colour,brand etc"
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="finderContact">Your Email *</label>
+                <input type="email" 
+                id="finderContact" 
+                name="finderContact"
+                placeholder="Required - used only for verified owners"
+                required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Post Found Item
+            </button>
+        </form>
+
+        <div id="successMessage" class="message success" style="display:none;">
+            ✅ Item posted successfully!
+        </div>
+
+        <div id="errorMessage" class="message error" style="display:none;">
+            ❌ Something went wrong.
+        </div>
+    </section>
+</main>
+
+<footer>
+   <p>&copy; 2026 CampusFind@BCREC | Developed by LOGICLORDS | Built for students, by students</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
